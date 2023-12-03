@@ -81,6 +81,7 @@ theme_override_font_sizes/font_size = 28
 text = "Begin"
 
 [node name="ButtonCredits" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1031.0
 offset_top = 586.0
 offset_right = 1240.0
@@ -102,3 +103,6 @@ offset_top = -40.0
 offset_right = 1338.0
 offset_bottom = 761.0
 color = Color(0.137255, 0.137255, 0.145098, 1)
+
+[connection signal="pressed" from="ButtonBegin" to="." method="_on_button_begin_pressed"]
+[connection signal="pressed" from="ButtonCredits" to="." method="_on_button_credits_pressed"]
