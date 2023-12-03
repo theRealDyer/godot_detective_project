@@ -1,6 +1,6 @@
 # Godot detective project
 
-This is the first repo for an attemp at making a detective-style, top-down, video game using Godot (4).
+This is the first repo for an attempt at making a detective-style, top-down, video game using Godot (4).
 
 Clone the repo. Keep it up to date with your commits and pushes so that the latest working version is available often.
 
