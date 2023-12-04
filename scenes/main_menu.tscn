@@ -81,6 +81,7 @@ theme_override_font_sizes/font_size = 28
 text = "Begin"
 
 [node name="ButtonCredits" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1031.0
 offset_top = 586.0
 offset_right = 1240.0
