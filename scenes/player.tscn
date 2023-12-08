@@ -1,34 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://k7fqqwe3qwai"]
+[gd_scene load_steps=12 format=3 uid="uid://k7fqqwe3qwai"]
 
-[ext_resource type="Texture2D" uid="uid://cdmrsj837a1hn" path="res://art/Player/DALL·E 2023-12-06 22.54.54 - A bird's-eye view of a classic 1980s detective in pixelated form, suitable for use as a sprite in a 2D game. The detective should be depicted from dir.png" id="1_75om0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sqyb2"]
-[ext_resource type="Texture2D" uid="uid://cprtafnijokcg" path="res://art/Player/DALL·E 2023-12-06 22.54.13 - A bird's-eye view of a classic 1980s detective, in pixelated form suitable for use as a sprite in a 2D game. The detective should be depicted from dir.png" id="2_aaei1"]
+[ext_resource type="Texture2D" uid="uid://oi0dsiid2t34" path="res://art/Player/walkingdetective.png" id="2_mlw5a"]
+[ext_resource type="Texture2D" uid="uid://bygcmrmabb4tj" path="res://art/Player/walkLR.png" id="2_wmvc1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k82h"]
+atlas = ExtResource("2_wmvc1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p285u"]
+atlas = ExtResource("2_wmvc1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuiaf"]
+atlas = ExtResource("2_wmvc1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gysgw"]
+atlas = ExtResource("2_mlw5a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj5ga"]
+atlas = ExtResource("2_mlw5a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa01o"]
+atlas = ExtResource("2_mlw5a")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_co5mn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_75om0")
+"texture": SubResource("AtlasTexture_5k82h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_aaei1")
+"texture": SubResource("AtlasTexture_p285u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuiaf")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walkRL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gysgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj5ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa01o")
+}],
+"loop": true,
+"name": &"walkUD",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_imh6y"]
-radius = 51.0
-height = 102.0
+radius = 20.0
+height = 40.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_sqyb2")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_co5mn")
+animation = &"walkUD"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_imh6y")
