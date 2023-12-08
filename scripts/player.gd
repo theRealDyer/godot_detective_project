@@ -45,3 +45,7 @@ func _physics_process(delta):
 		# Only flip if moving left
 		$AnimatedSprite2D.flip_h = velocity.x<0
 
+	# Clamp the character to the screen
+	var new_pos = position.clamp(Vector2.ZERO, screen_size)
+	if new_pos != position:
+		position=new_pos
