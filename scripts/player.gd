@@ -1,5 +1,5 @@
 extends Area2D
-
+# TESTING
 @export var speed = 400 # Sets how fast player moves [pixels/sec]
 var screen_size # Size of game window
 
