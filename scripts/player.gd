@@ -14,7 +14,7 @@ func start(pos):
 	
 func get_input():
 	# Gets the input buttons and makes a velocity
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_forward", "walk_backward")
 	velocity = input_dir * speed
 
 
