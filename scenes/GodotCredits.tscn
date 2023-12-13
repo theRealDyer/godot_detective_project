@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://8jfknu67yola"]
+[gd_scene load_steps=3 format=3 uid="uid://8jfknu67yola"]
 
 [ext_resource type="Script" path="res://scripts/GodotCredits.gd" id="1_8x45d"]
+[ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="2_6lyf5"]
 
 [node name="GodotCredits" type="Node2D"]
 script = ExtResource("1_8x45d")
@@ -9,6 +10,12 @@ script = ExtResource("1_8x45d")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -16.0
+offset_right = 1291.0
+offset_bottom = 734.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CreditsContainer" type="Control" parent="."]
@@ -16,10 +23,19 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Line" type="Label" parent="CreditsContainer"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
+offset_top = 734.0
+offset_bottom = 783.0
+grow_horizontal = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_6lyf5")
+text = "Credits line"
+horizontal_alignment = 1
