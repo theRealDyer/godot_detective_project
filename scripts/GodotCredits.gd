@@ -2,7 +2,7 @@ extends Node2D
 
 const section_time := 2.0
 const line_time := 0.3
-const base_speed := 150
+const base_speed := 100
 const speed_up_multiplier := 10.0
 const title_color := Color.SANDY_BROWN
 
@@ -90,12 +90,8 @@ func _process(delta):
 				lines.erase(l)
 				l.queue_free()
 				
-	if credits.size()==0 and lines.size()==0:
+	elif started:
 		finish()
-	
-	#elif started:
-		#finish()
-	# Adjust starting position
 
 
 func finish():
@@ -109,10 +105,10 @@ func add_line():
 	var new_line = line.duplicate()
 	new_line.text = section.pop_front()
 	lines.append(new_line)
-	
-	# Set the initial position 
-	new_line.position.y = get_viewport().size.y
-	new_line.position.x = get_viewport().size.x/2
+
+#	# Set the initial position (Jordan's update)
+#	new_line.position.y = get_viewport().size.y
+#	new_line.position.x = get_viewport().size.x/2
 	
 	if curr_line == 0:
 		# new_line.add_color_override("font_color", title_color) # Godot 3 version
