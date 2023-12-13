@@ -2,7 +2,7 @@ extends Node2D
 
 const section_time := 2.0
 const line_time := 0.3
-const base_speed := 100
+const base_speed := 150
 const speed_up_multiplier := 10.0
 const title_color := Color.BLUE_VIOLET
 
@@ -86,8 +86,13 @@ func _process(delta):
 			if l.position.y < -l.get_line_height():
 				lines.erase(l)
 				l.queue_free()
-	elif started:
+				
+	if credits.size()==0 and lines.size()==0:
 		finish()
+	
+	#elif started:
+		#finish()
+	# Adjust starting position
 
 
 func finish():
@@ -101,6 +106,11 @@ func add_line():
 	var new_line = line.duplicate()
 	new_line.text = section.pop_front()
 	lines.append(new_line)
+	
+	# Set the initial position 
+	new_line.position.y = get_viewport().size.y
+	new_line.position.x = get_viewport().size.x/2
+	
 	if curr_line == 0:
 		# new_line.add_color_override("font_color", title_color)
 		new_line.set("theme_override_colors/font_color", title_color)
@@ -111,6 +121,7 @@ func add_line():
 		section_next = false
 	else:
 		section_next = true
+		
 
 
 func _unhandled_input(event):
