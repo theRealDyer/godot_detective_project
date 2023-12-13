@@ -60,7 +60,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vg53"]
-radius = 18.0
+radius = 22.0
 height = 44.0
 
 [node name="Player" type="CharacterBody2D"]
@@ -72,7 +72,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_co5mn")
-animation = &"walkUD"
+animation = &"walkRL"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vg53")
