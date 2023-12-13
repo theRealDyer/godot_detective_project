@@ -4,7 +4,7 @@ const section_time := 2.0
 const line_time := 0.3
 const base_speed := 100
 const speed_up_multiplier := 10.0
-const title_color := Color.BLUE_VIOLET
+const title_color := Color.SANDY_BROWN
 
 # var scroll_speed := base_speed
 var speed_up := false
@@ -22,37 +22,40 @@ var lines := []
 
 var credits = [
 	[
-		"A game by Awesome Game Company"
+		"JJ Games"
 	],[
-		"Programming",
-		"Programmer Name",
-		"Programmer Name 2"
+		"- PROGRAMMING -",
+		"James",
+		"Jordan"
 	],[
-		"Art",
-		"Artist Name"
+		"- ART -",
+		"James",
+		"Jordan"
 	],[
-		"Music",
-		"Musician Name"
+		"- MUSIC -",
+		"James",
+		"Jordan"
 	],[
-		"Sound Effects",
-		"SFX Name"
+		"- SOUND -",
+		"James",
+		"Jordan"
 	],[
-		"Testers",
-		"Name 1",
-		"Name 2",
-		"Name 3"
+		"- TESTING -",
+		"Chump 1",
+		"Chump 2",
+		"Chump 3"
 	],[
-		"Tools used",
 		"Developed with Godot Engine",
 		"https://godotengine.org/license",
 		"",
 		"Art created with My Favourite Art Program",
 		"https://myfavouriteartprogram.com"
 	],[
-		"Special thanks",
-		"My parents",
-		"My friends",
-		"My pet rabbit"
+		"- SPECIAL THANKS -",
+		"Partners",
+		"Parents",
+		"Friends",
+		"Pets"
 	]
 ]
 
@@ -102,8 +105,8 @@ func add_line():
 	new_line.text = section.pop_front()
 	lines.append(new_line)
 	if curr_line == 0:
-		# new_line.add_color_override("font_color", title_color)
-		new_line.set("theme_override_colors/font_color", title_color)
+		# new_line.add_color_override("font_color", title_color) # Godot 3 version
+		new_line.set("theme_override_colors/font_color", title_color) # Godot 4 version
 	$CreditsContainer.add_child(new_line)
 	
 	if section.size() > 0:
