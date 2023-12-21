@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://qpk04omjty6j"]
+
+[ext_resource type="Texture2D" uid="uid://df4ct5hjnd3jv" path="res://art/slot.png" id="1_elns5"]
+
+[node name="Panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(46, 46)
+offset_right = 46.0
+offset_bottom = 46.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_elns5")
+centered = false
