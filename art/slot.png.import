@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd5bbbj65da7n"
-path="res://.godot/imported/DALL·E 2023-12-06 22.54.54 - detective3.png-3ee698c890a9346ac27411d0e5bedce8.ctex"
+uid="uid://df4ct5hjnd3jv"
+path="res://.godot/imported/slot.png-449862db9f817a8e1a08b73aa397e6df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Player/DALL·E 2023-12-06 22.54.54 - detective3.png"
-dest_files=["res://.godot/imported/DALL·E 2023-12-06 22.54.54 - detective3.png-3ee698c890a9346ac27411d0e5bedce8.ctex"]
+source_file="res://art/slot.png"
+dest_files=["res://.godot/imported/slot.png-449862db9f817a8e1a08b73aa397e6df.ctex"]
 
 [params]
 
