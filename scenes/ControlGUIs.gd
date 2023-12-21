@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var inventory = $Inventory
+@onready var inventory = $PlayerInventory
 
 func _ready():
 	# Default to closed inventory

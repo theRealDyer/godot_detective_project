@@ -25,8 +25,18 @@ position = Vector2(952, 136)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_i6p38")
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("4_wdjeq")]
-anchors_preset = 10
-anchor_right = 1.0
+[node name="PlayerInventory" parent="CanvasLayer" instance=ExtResource("4_wdjeq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -80.0
+offset_right = -320.0
+offset_bottom = -80.0
 grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
