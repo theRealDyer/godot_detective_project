@@ -10,6 +10,8 @@
 script = ExtResource("1_q7jdc")
 table_scene = ExtResource("3_w24go")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_8xh3x")]
 position = Vector2(300, 300)
 
@@ -38,5 +40,3 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-
-[node name="Camera2D" type="Camera2D" parent="."]
