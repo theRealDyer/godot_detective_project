@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # get camera node
-@onready var cameraNode : Camera2D = get_node("/root/Node/Camera2D")
+@onready var cameraNode : Camera2D = get_node("../Camera2D")
 
 @export var speed = 200 # Sets how fast player moves [pixels/sec]
 var screen_size # Size of game window
@@ -20,14 +20,13 @@ func get_input():
 	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_forward", "walk_backward")
 	velocity = input_dir * speed
 
-func _process(delta):
-	# Has the camera follow the player
-	cameraNode.position = position
-
 
 func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity*delta)
+	
+	# Has the camera follow the player
+	#cameraNode.position = position
 	
 	# Starts/stops animations
 	if velocity.length() > 0:
