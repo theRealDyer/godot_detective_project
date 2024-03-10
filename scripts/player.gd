@@ -26,7 +26,7 @@ func _physics_process(delta):
 	move_and_collide(velocity*delta)
 	
 	# Has the camera follow the player
-	#cameraNode.position = position
+	cameraNode.position = position
 	
 	# Starts/stops animations
 	if velocity.length() > 0:
