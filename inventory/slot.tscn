@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qpk04omjty6j"]
 
-[ext_resource type="Texture2D" path="res://art/slot.png" id="1_elns5"]
+[ext_resource type="Texture2D" uid="uid://df4ct5hjnd3jv" path="res://art/slot.png" id="1_elns5"]
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
