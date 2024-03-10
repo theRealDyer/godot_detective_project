@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0jrvm0fw8wks"
-path="res://.godot/imported/table.png-f2c011ba13d92e336ca40e62b59eba4a.ctex"
+uid="uid://bd5bbbj65da7n"
+path="res://.godot/imported/dalleInspoImage2.png-217356fd16c22337c6a3f5a7eef0a0f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/table.png"
-dest_files=["res://.godot/imported/table.png-f2c011ba13d92e336ca40e62b59eba4a.ctex"]
+source_file="res://art/Player/dalleInspoImage2.png"
+dest_files=["res://.godot/imported/dalleInspoImage2.png-217356fd16c22337c6a3f5a7eef0a0f6.ctex"]
 
 [params]
 
