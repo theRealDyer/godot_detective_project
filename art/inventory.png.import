@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btfo3lirpih2e"
-path="res://.godot/imported/DALL·E 2023-12-06 22.54.13 - detective1.png-a9a7e75438576651af748b4935c93685.ctex"
+uid="uid://qbab1m0nskko"
+path="res://.godot/imported/inventory.png-2d579f5ea1276365118645fa2128fa23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Player/DALL·E 2023-12-06 22.54.13 - detective1.png"
-dest_files=["res://.godot/imported/DALL·E 2023-12-06 22.54.13 - detective1.png-a9a7e75438576651af748b4935c93685.ctex"]
+source_file="res://art/inventory.png"
+dest_files=["res://.godot/imported/inventory.png-2d579f5ea1276365118645fa2128fa23.ctex"]
 
 [params]
 

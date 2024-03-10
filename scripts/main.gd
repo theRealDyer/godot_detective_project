@@ -1,7 +1,7 @@
 extends Node
 
 @export var table_scene: PackedScene
-@export var NumTables = 3
+@export var NumTables = 0
 var screen_size = Vector2()# Size of game window
 var placed_tables = [] # Keep track of placed tables
 var player_start_pos = Vector2()
@@ -30,7 +30,7 @@ func ValidPos(pos, table):
 func MakeTables(NumTables):
 	# Get screen size
 	screen_size = get_viewport().size
-	player_start_pos = $StartPosition.position
+	player_start_pos = get_node("Player").position
 	
 	# Make N tables randomly around the map
 	for i in range(NumTables):
@@ -60,7 +60,7 @@ func MakeTables(NumTables):
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player.start($StartPosition.position)
+	
 	MakeTables(NumTables)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

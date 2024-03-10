@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# get camera node
+@onready var cameraNode : Camera2D = get_node("/root/Node/Camera2D")
+
 @export var speed = 200 # Sets how fast player moves [pixels/sec]
 var screen_size # Size of game window
 
@@ -16,6 +19,10 @@ func get_input():
 	# Gets the input buttons and makes a velocity
 	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_forward", "walk_backward")
 	velocity = input_dir * speed
+
+func _process(delta):
+	# Has the camera follow the player
+	cameraNode.position = position
 
 
 func _physics_process(delta):
@@ -45,7 +52,7 @@ func _physics_process(delta):
 		# Only flip if moving left
 		$AnimatedSprite2D.flip_h = velocity.x<0
 
-	# Clamp the character to the screen
-	var new_pos = position.clamp(Vector2.ZERO, screen_size)
-	if new_pos != position:
-		position=new_pos
+	## Clamp the character to the screen
+	#var new_pos = position.clamp(Vector2.ZERO, screen_size)
+	#if new_pos != position:
+		#position=new_pos
