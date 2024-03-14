@@ -12,4 +12,4 @@ func _on_button_credits_pressed():
 
 
 func _on_button_begin_pressed():
-	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu_2.tscn")
