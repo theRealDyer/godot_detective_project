@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://br1n28fc6xbce"]
+[gd_scene load_steps=17 format=3 uid="uid://br1n28fc6xbce"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_35gp6"]
 [ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="1_jwiqk"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dyxjnl3p1gli8" path="res://art/backgrounds/TilesetInteriorFloor.png" id="3_fl321"]
 [ext_resource type="Texture2D" uid="uid://dfbc4rtq5em6s" path="res://art/backgrounds/TilesetWallSimple.png" id="4_kdt7f"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="5_ujh70"]
+[ext_resource type="Resource" uid="uid://dsomf22bo2r0x" path="res://inventory/inventory.tres" id="7_3ttfs"]
 [ext_resource type="PackedScene" uid="uid://bwry8tx8byx2u" path="res://scenes/npc1.tscn" id="7_scust"]
 [ext_resource type="PackedScene" uid="uid://bbw6rgjhqqug6" path="res://scenes/table.tscn" id="8_8v3mu"]
 [ext_resource type="PackedScene" uid="uid://qtc0qsocyx4x" path="res://scenes/paper1.tscn" id="9_l4hep"]
+[ext_resource type="Script" path="res://scripts/ControlGUIs.gd" id="10_6qtf1"]
+[ext_resource type="PackedScene" uid="uid://dcke2aie8n6yy" path="res://inventory/inventory.tscn" id="10_e6w7n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpat4"]
 texture = ExtResource("2_ih0yj")
@@ -2013,6 +2016,7 @@ tilemap = NodePath("../TileMap")
 
 [node name="Player" parent="." instance=ExtResource("1_jwiqk")]
 position = Vector2(493, 252)
+inventory = ExtResource("7_3ttfs")
 speed = 150
 
 [node name="Npc1" parent="." instance=ExtResource("7_scust")]
@@ -2026,3 +2030,20 @@ position = Vector2(621, 443)
 [node name="Paper1" parent="." instance=ExtResource("9_l4hep")]
 position = Vector2(590, 435)
 scale = Vector2(1.5, 1.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("10_6qtf1")
+
+[node name="PlayerInventory" parent="CanvasLayer" instance=ExtResource("10_e6w7n")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -80.0
+offset_right = -320.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)

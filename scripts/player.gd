@@ -3,6 +3,8 @@ extends CharacterBody2D
 # get camera node
 @onready var cameraNode : Camera2D = get_node("../Camera2D")
 
+@export var inventory: InventoryData
+
 @export var speed = 200 # Sets how fast player moves [pixels/sec]
 var screen_size # Size of game window
 

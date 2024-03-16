@@ -34,38 +34,38 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="Panel" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
 
-[node name="Panel12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
+[node name="Slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_trlub")]
 layout_mode = 2
