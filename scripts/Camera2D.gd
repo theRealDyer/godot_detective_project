@@ -5,7 +5,12 @@ extends Camera2D
 func _ready():
 	var mapRect = tilemap.get_used_rect()
 	var tileSize = tilemap.cell_quadrant_size
-	var worldSizeInPixels = mapRect.size * tileSize
+	'''
+	N.B. worldSizeInPixels has been SCALED by 2 because the tiles
+	themselves been scaled by 2 to make them bigger. This can be 
+	removed when real art comes in.
+	'''
+	var worldSizeInPixels = mapRect.size * tileSize * 2
 	limit_right = worldSizeInPixels.x
 	limit_bottom = worldSizeInPixels.y
 
