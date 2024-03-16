@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://kkevrjno83m6"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_01h61"]
+[ext_resource type="Texture2D" uid="uid://sihaar1ucyes" path="res://art/objects/paper1.png" id="2_iyt2c"]
+
+[resource]
+script = ExtResource("1_01h61")
+name = "Paper"
+description = "Someone's doodles ..... is that a penis?"
+stackable = true
+texture = ExtResource("2_iyt2c")
