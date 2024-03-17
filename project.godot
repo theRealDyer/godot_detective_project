@@ -15,6 +15,10 @@ run/main_scene="res://scenes/intro_godot_logo.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[aseprite_importers]
+
+aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
+
 [display]
 
 window/size/viewport_width=1280
@@ -24,6 +28,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="godot_detective_project"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [input]
 
@@ -59,4 +67,5 @@ toggle_inventory={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
