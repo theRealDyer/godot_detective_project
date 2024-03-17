@@ -66,17 +66,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vg53"]
-radius = 22.0
-height = 44.0
+radius = 14.0
+height = 28.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(2, 1)
 disable_mode = 1
 script = ExtResource("1_sqyb2")
+speed = 100
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_co5mn")
 animation = &"walkUD"
 
