@@ -5,7 +5,8 @@ extends CharacterBody2D
 
 @export var inventory: InventoryData
 
-@export var speed = 200 # Sets how fast player moves [pixels/sec]
+@export var speed = 100 # Sets how fast player moves [pixels/sec]
+@export var sprintFactor=1.2 # Factor to increase movement when sprinting
 var screen_size # Size of game window
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +21,15 @@ func start(pos):
 func get_input():
 	# Gets the input buttons and makes a velocity
 	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_forward", "walk_backward")
-	velocity = input_dir * speed
+	
+	if Input.is_action_pressed("sprint"):
+		# If holding shift then sprint
+		print("SPRINTING")
+		velocity = input_dir * speed*sprintFactor
+	else:
+		# Walking
+		velocity = input_dir * speed
+	
 
 
 func _physics_process(delta):
