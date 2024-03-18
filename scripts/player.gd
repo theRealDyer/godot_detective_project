@@ -11,6 +11,7 @@ var screen_size # Size of game window
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE # Allows player to be paused
 	screen_size = get_viewport_rect().size
 
 func start(pos):

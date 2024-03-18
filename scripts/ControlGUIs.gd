@@ -4,6 +4,7 @@ extends CanvasLayer
 
 func _ready():
 	# Default to closed inventory
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	inventory.Close()
 
 func _input(event):
@@ -11,5 +12,6 @@ func _input(event):
 		# If inventory button pressed, toggle Inventory
 		if inventory.isOpen:
 			inventory.Close()
+			
 		else:
 			inventory.Open()
