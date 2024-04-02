@@ -5,10 +5,8 @@ extends Panel
 
 func update(item: ItemData):
 	if !item:
-		backgroundSprite.frame=0
 		itemSprite.visible = false
 	else:
-		backgroundSprite.frame = 1
 		itemSprite.visible = true
 		itemSprite.texture = item.texture
  
