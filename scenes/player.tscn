@@ -111,8 +111,9 @@ height = 28.0
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(2, 1)
 disable_mode = 1
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_sqyb2")
-speed = 100
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

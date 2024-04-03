@@ -1,4 +1,4 @@
-extends Node
+eaxtends Node
 
 @export var table_scene: PackedScene
 @export var NumTables = 0
