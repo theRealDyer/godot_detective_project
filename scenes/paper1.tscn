@@ -33,3 +33,5 @@ texture = ExtResource("1_g5d68")
 light_mask = 0
 visibility_layer = 0
 shape = SubResource("RectangleShape2D_pmnae")
+
+[connection signal="item_interact" from="PaperEdges" to="." method="_display_Item_Info"]

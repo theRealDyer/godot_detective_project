@@ -18,12 +18,19 @@ func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		can_pick_up=false
 		print("left zone")
-
-func _on_Area2D_input_event(view, event, shape_idx):
-	# Check if event is a mouse button and if so pick up item
-	if Input.is_action_pressed('interact') and can_pick_up:
-		print("PICK OBJECT")
-		emit_signal("item_picked_up")
 		
-		# Call the insert function
+func _display_Item_Info(item_info):
+	# Show resource info on item interact
+	# Access the ui for item interaction
+	var ui_layer = get_node("/root/Level2/UILayer/InfoPanel")
+	var name_label = ui_layer.get_node("ItemName") 
+	var description_label = ui_layer.get_node("ItemDescription")
 	
+	# Set the name and description text to that which is in the item resource
+	name_label.text = item_info.name
+	description_label.text = item_info.description
+	
+	# Show UI elements if they are not yet visible
+	ui_layer.visible = true
+	name_label.show()
+	description_label.show()

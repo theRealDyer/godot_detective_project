@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://br1n28fc6xbce"]
+[gd_scene load_steps=19 format=3 uid="uid://br1n28fc6xbce"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_35gp6"]
 [ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="1_jwiqk"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://qtc0qsocyx4x" path="res://scenes/paper1.tscn" id="9_l4hep"]
 [ext_resource type="Script" path="res://scripts/ControlGUIs.gd" id="10_6qtf1"]
 [ext_resource type="PackedScene" uid="uid://dcke2aie8n6yy" path="res://inventory/inventory.tscn" id="10_e6w7n"]
+[ext_resource type="Script" path="res://scripts/InfoPanel.gd" id="13_rxy75"]
+[ext_resource type="PackedScene" uid="uid://b0jmt7kausbci" path="res://scenes/key.tscn" id="14_x503u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_liv7j"]
 texture = ExtResource("2_ih0yj")
@@ -1736,7 +1738,7 @@ texture = ExtResource("3_fl321")
 texture = ExtResource("4_kdt7f")
 
 [sub_resource type="TileSet" id="TileSet_s7d88"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 sources/3 = SubResource("TileSetAtlasSource_liv7j")
 sources/4 = SubResource("TileSetAtlasSource_r51bk")
 sources/5 = SubResource("TileSetAtlasSource_fgh3i")
@@ -1764,7 +1766,7 @@ tilemap = NodePath("../TileMap")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_jwiqk")]
 position = Vector2(223, 118)
 collision_layer = 1
-collision_mask = 2
+collision_mask = 6
 inventory = ExtResource("7_3ttfs")
 speed = 150
 
@@ -1783,10 +1785,63 @@ position = Vector2(306, 222)
 scale = Vector2(1, 1)
 collision_layer = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="table2" parent="." instance=ExtResource("8_8v3mu")]
+position = Vector2(313, 70)
+rotation = 1.56366
+scale = Vector2(1, 1)
+collision_layer = 2
+
+[node name="Paper1" parent="." instance=ExtResource("9_l4hep")]
+position = Vector2(289, 219)
+collision_mask = 1
+
+[node name="key" parent="." instance=ExtResource("14_x503u")]
+position = Vector2(316, 56)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="InfoPanel" type="Control" parent="UILayer"]
+layout_mode = 3
+anchor_right = 0.16875
+anchor_bottom = 0.181944
+offset_left = 450.0
+offset_top = 43.0
+offset_right = 490.0
+offset_bottom = 83.0
+script = ExtResource("13_rxy75")
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemName" type="RichTextLabel" parent="UILayer/InfoPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.0701754
+anchor_right = 0.558594
+anchor_bottom = 0.0701754
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemDescription" type="RichTextLabel" parent="UILayer/InfoPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0546875
+anchor_top = 0.374269
+anchor_right = 0.613281
+anchor_bottom = 0.730994
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryLayer" type="CanvasLayer" parent="."]
 script = ExtResource("10_6qtf1")
 
-[node name="PlayerInventory" parent="CanvasLayer" instance=ExtResource("10_e6w7n")]
+[node name="PlayerInventory" parent="InventoryLayer" instance=ExtResource("10_e6w7n")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1800,6 +1855,5 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
-[node name="Paper1" parent="." instance=ExtResource("9_l4hep")]
-position = Vector2(289, 219)
-collision_mask = 1
+[connection signal="body_exited" from="Paper1" to="UILayer/InfoPanel" method="on_Body_Exited"]
+[connection signal="body_exited" from="key" to="UILayer/InfoPanel" method="on_Body_Exited"]

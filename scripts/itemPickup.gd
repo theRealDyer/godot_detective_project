@@ -1,5 +1,6 @@
 extends Area2D
 
+signal item_interact
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,4 +12,6 @@ func _on_Item_Interact(view, event, shape_idx):
 	# Checks the input is mouse click on item
 	if Input.is_action_pressed('interact') and regionScript.can_pick_up:
 		print("PICK OBJECT")
-		emit_signal("item_picked_up")
+		# Get the item meta data
+		var item_info = regionScript.get_meta("Information") as ItemData
+		emit_signal("item_interact", item_info)

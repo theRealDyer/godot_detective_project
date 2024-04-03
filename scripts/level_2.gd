@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var finished := false # for use when exiting level
 
 func finish(): # finishes the scene and moves to the next one
