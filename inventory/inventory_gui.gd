@@ -11,7 +11,7 @@ func _ready():
 	inventory.updated.connect(update)
 	update()
 
-func update():
+func update():	
 	for i in range(min(inventory.slot_datas.size(), slots.size())):
 		slots[i].update(inventory.slot_datas[i].item_data)
 

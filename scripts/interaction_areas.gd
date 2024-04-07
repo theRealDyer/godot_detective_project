@@ -22,9 +22,9 @@ func _on_body_exited(body):
 func _display_Item_Info(item_info):
 	# Show resource info on item interact
 	# Access the ui for item interaction
-	var ui_layer = get_node("/root/Level2/UILayer/InfoPanel")
-	var name_label = ui_layer.get_node("ItemName") 
-	var description_label = ui_layer.get_node("ItemDescription")
+	var ui_layer = get_node("/root/Level2/UILayer/InfoPanel/")
+	var name_label = ui_layer.get_node("ColorBackground/Panel/ItemName") 
+	var description_label = ui_layer.get_node("ColorBackground/Panel/ItemDescription")
 	
 	# Set the name and description text to that which is in the item resource
 	name_label.text = item_info.name
@@ -34,3 +34,4 @@ func _display_Item_Info(item_info):
 	ui_layer.visible = true
 	name_label.show()
 	description_label.show()
+

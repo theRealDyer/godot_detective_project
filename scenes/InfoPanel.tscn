@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvgvytbmqkc3g"]
+
+[ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="1_61djs"]
+[ext_resource type="Script" path="res://scripts/InfoPanel.gd" id="1_vxiox"]
+
+[sub_resource type="Theme" id="Theme_ghs0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwful"]
+bg_color = Color(0.211765, 0.321569, 0.266667, 0.917647)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="InfoPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 453.0
+offset_top = 110.0
+offset_right = 846.0
+offset_bottom = 210.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_ghs0g")
+script = ExtResource("1_vxiox")
+
+[node name="ColorBackground" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 141.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hwful")
+
+[node name="Panel" type="VBoxContainer" parent="ColorBackground"]
+self_modulate = Color(0.333333, 0.698039, 0.690196, 1)
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 141.0
+
+[node name="ItemName" type="Label" parent="ColorBackground/Panel"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_61djs")
+text = "Place holder "
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ItemDescription" type="Label" parent="ColorBackground/Panel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_61djs")
+text = "Description placeholder"
+horizontal_alignment = 1
+autowrap_mode = 2

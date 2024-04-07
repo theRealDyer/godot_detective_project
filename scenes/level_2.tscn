@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://qtc0qsocyx4x" path="res://scenes/paper1.tscn" id="9_l4hep"]
 [ext_resource type="Script" path="res://scripts/ControlGUIs.gd" id="10_6qtf1"]
 [ext_resource type="PackedScene" uid="uid://dcke2aie8n6yy" path="res://inventory/inventory.tscn" id="10_e6w7n"]
-[ext_resource type="Script" path="res://scripts/InfoPanel.gd" id="13_rxy75"]
+[ext_resource type="PackedScene" uid="uid://cvgvytbmqkc3g" path="res://scenes/InfoPanel.tscn" id="12_osja6"]
 [ext_resource type="PackedScene" uid="uid://b0jmt7kausbci" path="res://scenes/key.tscn" id="14_x503u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_liv7j"]
@@ -1801,42 +1801,7 @@ position = Vector2(316, 56)
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="InfoPanel" type="Control" parent="UILayer"]
-layout_mode = 3
-anchor_right = 0.16875
-anchor_bottom = 0.181944
-offset_left = 450.0
-offset_top = 43.0
-offset_right = 490.0
-offset_bottom = 83.0
-script = ExtResource("13_rxy75")
-metadata/_edit_use_anchors_ = true
-
-[node name="ItemName" type="RichTextLabel" parent="UILayer/InfoPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.0701754
-anchor_right = 0.558594
-anchor_bottom = 0.0701754
-offset_right = 40.0
-offset_bottom = 40.0
-fit_content = true
-metadata/_edit_use_anchors_ = true
-
-[node name="ItemDescription" type="RichTextLabel" parent="UILayer/InfoPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0546875
-anchor_top = 0.374269
-anchor_right = 0.613281
-anchor_bottom = 0.730994
-offset_left = 10.0
-offset_top = 16.0
-offset_right = 40.0
-offset_bottom = 40.0
-fit_content = true
-metadata/_edit_use_anchors_ = true
+[node name="InfoPanel" parent="UILayer" instance=ExtResource("12_osja6")]
 
 [node name="InventoryLayer" type="CanvasLayer" parent="."]
 script = ExtResource("10_6qtf1")
@@ -1854,6 +1819,3 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-
-[connection signal="body_exited" from="Paper1" to="UILayer/InfoPanel" method="on_Body_Exited"]
-[connection signal="body_exited" from="key" to="UILayer/InfoPanel" method="on_Body_Exited"]
