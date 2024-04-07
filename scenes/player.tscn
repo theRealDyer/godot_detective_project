@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://k7fqqwe3qwai"]
+[gd_scene load_steps=22 format=3 uid="uid://k7fqqwe3qwai"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sqyb2"]
 [ext_resource type="Texture2D" uid="uid://d2rax5w71mpm6" path="res://art/Player/playerIdleReduced.png" id="2_1uwwi"]
 [ext_resource type="Texture2D" uid="uid://oi0dsiid2t34" path="res://art/Player/walkingdetective.png" id="2_mlw5a"]
 [ext_resource type="Texture2D" uid="uid://bygcmrmabb4tj" path="res://art/Player/walkLR.png" id="2_wmvc1"]
+[ext_resource type="Texture2D" uid="uid://dvdpug8ibxgga" path="res://art/Player/walkingdetectiveDiag.png" id="5_6o83y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7r52"]
 atlas = ExtResource("2_1uwwi")
@@ -43,6 +44,22 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa01o"]
 atlas = ExtResource("2_mlw5a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6t2l"]
+atlas = ExtResource("5_6o83y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry10b"]
+atlas = ExtResource("5_6o83y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj1ec"]
+atlas = ExtResource("5_6o83y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fger1"]
+atlas = ExtResource("5_6o83y")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_co5mn"]
@@ -102,6 +119,23 @@ animations = [{
 "loop": true,
 "name": &"walkUD",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6t2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry10b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj1ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fger1")
+}],
+"loop": true,
+"name": &"walkUL",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vg53"]
@@ -118,7 +152,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_co5mn")
-animation = &"idleRL"
+animation = &"idleUD"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vg53")

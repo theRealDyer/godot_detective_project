@@ -6,11 +6,12 @@ extends CharacterBody2D
 @export var inventory: InventoryData
 
 @export var speed = 100 # Sets how fast player moves [pixels/sec]
-@export var sprintFactor=1.2 # Factor to increase movement when sprinting
+@export var sprintFactor=1.5 # Factor to increase movement when sprinting
 var screen_size # Size of game window
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	process_mode = Node.PROCESS_MODE_PAUSABLE # Allows player to be paused
 	screen_size = get_viewport_rect().size
 
@@ -50,11 +51,27 @@ func _physics_process(delta):
 	
 	# Check direction of movenent and play correct animation
 	if velocity.y!=0: # UpDown movement
-		# Set animation to up down animation
-		$AnimatedSprite2D.animation = 'walkUD'
-		$AnimatedSprite2D.flip_h = false # Dont flip along x=0
-		#  Only flip animation if moving down
-		$AnimatedSprite2D.flip_v = velocity.y>0 
+		if velocity.x==0:
+			## Moving onl;y in the y axis
+			# Set animation to up down animation
+			$AnimatedSprite2D.animation = 'walkUD'
+			$AnimatedSprite2D.flip_h = false # Dont flip along x=0
+			#  Only flip animation if moving down
+			$AnimatedSprite2D.flip_v = velocity.y>0 
+		
+		else:
+			# Moving diagonal
+			# Set animation to UP Left by defaut
+			$AnimatedSprite2D.animation = 'walkUL'
+			$AnimatedSprite2D.flip_h=false
+			$AnimatedSprite2D.flip_v=false
+			
+			# Flip vertically if moving down
+			$AnimatedSprite2D.flip_v = velocity.y>0
+			# Flip horizontally if moving right
+			$AnimatedSprite2D.flip_h = velocity.x>0
+			
+			
 		
 	elif velocity.x!=0: # RL movement
 		# Set correct animation
@@ -64,9 +81,16 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = velocity.x<0
 
 	else:
-		$AnimatedSprite2D.animation = 'idleRL'
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h = true
+		# Idling --> set idle image based on previous movement
+		if Input.is_action_just_released("walk_forward") or \
+		Input.is_action_just_released("walk_backward"):
+			
+			$AnimatedSprite2D.animation = 'idleUD'
+		elif Input.is_action_just_released("walk_left") or \
+		Input.is_action_just_released("walk_right"):
+			$AnimatedSprite2D.animation = 'idleRL'
+
+		
 		
 	## Clamp the character to the screen
 	#var new_pos = position.clamp(Vector2.ZERO, screen_size)
