@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var ui_layer = $"../UILayer/InfoPanel"
 var can_pick_up = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,12 +18,12 @@ func _on_body_exited(body):
 	# Check if player leaves the area
 	if body.is_in_group("Player"):
 		can_pick_up=false
+		ui_layer.visible = false
 		print("left zone")
 		
 func _display_Item_Info(item_info):
 	# Show resource info on item interact
 	# Access the ui for item interaction
-	var ui_layer = get_node("/root/Level2/UILayer/InfoPanel/")
 	var name_label = ui_layer.get_node("ColorBackground/Panel/ItemName") 
 	var description_label = ui_layer.get_node("ColorBackground/Panel/ItemDescription")
 	
