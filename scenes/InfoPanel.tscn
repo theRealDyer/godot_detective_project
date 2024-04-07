@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvgvytbmqkc3g"]
+[gd_scene load_steps=4 format=3 uid="uid://cvgvytbmqkc3g"]
 
 [ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="1_61djs"]
-[ext_resource type="Script" path="res://scripts/InfoPanel.gd" id="1_vxiox"]
-
-[sub_resource type="Theme" id="Theme_ghs0g"]
+[ext_resource type="Script" path="res://scripts/InfoBackColor.gd" id="2_4maa1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwful"]
 bg_color = Color(0.211765, 0.321569, 0.266667, 0.917647)
@@ -12,42 +10,66 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[node name="InfoPanel" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 453.0
-offset_top = 110.0
-offset_right = 846.0
-offset_bottom = 210.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_ghs0g")
-script = ExtResource("1_vxiox")
-
-[node name="ColorBackground" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 420.0
-offset_bottom = 141.0
+[node name="ColorBackground" type="Panel"]
+offset_left = 385.0
+offset_top = 214.0
+offset_right = 979.0
+offset_bottom = 427.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hwful")
+script = ExtResource("2_4maa1")
 
-[node name="Panel" type="VBoxContainer" parent="ColorBackground"]
+[node name="Panel" type="HBoxContainer" parent="."]
 self_modulate = Color(0.333333, 0.698039, 0.690196, 1)
-layout_mode = 0
-offset_right = 420.0
-offset_bottom = 141.0
+layout_mode = 2
+offset_left = 25.0
+offset_top = 3.0
+offset_right = 274.0
+offset_bottom = 148.0
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="ItemName" type="Label" parent="ColorBackground/Panel"]
+[node name="Text" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ItemName" type="Label" parent="Panel/Text"]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_61djs")
+theme_override_font_sizes/font_size = 20
 text = "Place holder "
 horizontal_alignment = 1
 uppercase = true
 
-[node name="ItemDescription" type="Label" parent="ColorBackground/Panel"]
+[node name="ItemDescription" type="Label" parent="Panel/Text"]
+custom_minimum_size = Vector2(350, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_61djs")
 text = "Description placeholder"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Text"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.894118, 0.717647, 0.0431373, 1)
+theme_override_colors/font_shadow_color = Color(0.00784314, 0.00784314, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("1_61djs")
+theme_override_font_sizes/font_size = 15
+text = "Press [E] to pick up"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Sprite" type="CenterContainer" parent="Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Image" type="TextureRect" parent="Panel/Sprite"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 4
+stretch_mode = 4
+
+[connection signal="resized" from="Panel" to="." method="_on_VBoxContainer_size_changed"]
