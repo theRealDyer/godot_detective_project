@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://br1n28fc6xbce"]
+[gd_scene load_steps=19 format=3 uid="uid://br1n28fc6xbce"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_35gp6"]
 [ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="1_jwiqk"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://qtc0qsocyx4x" path="res://scenes/paper1.tscn" id="9_l4hep"]
 [ext_resource type="Script" path="res://scripts/ControlGUIs.gd" id="10_6qtf1"]
 [ext_resource type="PackedScene" uid="uid://dcke2aie8n6yy" path="res://inventory/inventory.tscn" id="10_e6w7n"]
+[ext_resource type="PackedScene" uid="uid://cvgvytbmqkc3g" path="res://scenes/InfoPanel.tscn" id="12_osja6"]
+[ext_resource type="PackedScene" uid="uid://b0jmt7kausbci" path="res://scenes/key.tscn" id="14_x503u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_liv7j"]
 texture = ExtResource("2_ih0yj")
@@ -1736,7 +1738,7 @@ texture = ExtResource("3_fl321")
 texture = ExtResource("4_kdt7f")
 
 [sub_resource type="TileSet" id="TileSet_s7d88"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 sources/3 = SubResource("TileSetAtlasSource_liv7j")
 sources/4 = SubResource("TileSetAtlasSource_r51bk")
 sources/5 = SubResource("TileSetAtlasSource_fgh3i")
@@ -1761,31 +1763,50 @@ position_smoothing_enabled = true
 script = ExtResource("5_ujh70")
 tilemap = NodePath("../TileMap")
 
-[node name="Player" parent="." instance=ExtResource("1_jwiqk")]
-position = Vector2(213, 109)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_jwiqk")]
+position = Vector2(223, 118)
+collision_layer = 1
+collision_mask = 6
 inventory = ExtResource("7_3ttfs")
 speed = 150
 
 [node name="Npc1" parent="." instance=ExtResource("7_scust")]
 position = Vector2(356, 194)
 rotation = 3.14159
+collision_layer = 2
 
 [node name="Npc2" parent="." instance=ExtResource("7_scust")]
 position = Vector2(233, 272)
 rotation = 4.71239
+collision_layer = 2
 
 [node name="table" parent="." instance=ExtResource("8_8v3mu")]
 position = Vector2(306, 222)
 scale = Vector2(1, 1)
+collision_layer = 2
+
+[node name="table2" parent="." instance=ExtResource("8_8v3mu")]
+position = Vector2(313, 70)
+rotation = 1.56366
+scale = Vector2(1, 1)
+collision_layer = 2
 
 [node name="Paper1" parent="." instance=ExtResource("9_l4hep")]
-position = Vector2(590, 435)
-scale = Vector2(1.5, 1.5)
+position = Vector2(289, 219)
+collision_mask = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="key" parent="." instance=ExtResource("14_x503u")]
+position = Vector2(316, 56)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="InfoPanel" parent="UILayer" instance=ExtResource("12_osja6")]
+
+[node name="InventoryLayer" type="CanvasLayer" parent="."]
 script = ExtResource("10_6qtf1")
 
-[node name="PlayerInventory" parent="CanvasLayer" instance=ExtResource("10_e6w7n")]
+[node name="PlayerInventory" parent="InventoryLayer" instance=ExtResource("10_e6w7n")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
