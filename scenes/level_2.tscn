@@ -1762,8 +1762,7 @@ script = ExtResource("5_ujh70")
 tilemap = NodePath("../TileMap")
 
 [node name="Player" parent="." instance=ExtResource("1_jwiqk")]
-
-position = Vector2(493, 252)
+position = Vector2(213, 109)
 inventory = ExtResource("7_3ttfs")
 speed = 150
 
@@ -1780,7 +1779,6 @@ position = Vector2(306, 222)
 scale = Vector2(1, 1)
 
 [node name="Paper1" parent="." instance=ExtResource("9_l4hep")]
-
 position = Vector2(590, 435)
 scale = Vector2(1.5, 1.5)
 
