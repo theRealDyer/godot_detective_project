@@ -1,18 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://b08nkp0umw87o"]
+[gd_scene load_steps=7 format=3 uid="uid://b08nkp0umw87o"]
 
 [ext_resource type="Script" path="res://scripts/introLevel.gd" id="1_jy67l"]
 [ext_resource type="Texture2D" uid="uid://bspbbhdplqq7s" path="res://art/backgrounds/intro_scene.png" id="2_wae7k"]
+[ext_resource type="Script" path="res://scripts/Camera2DNonTile.gd" id="3_1tvrb"]
 [ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="3_dnwwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j04nu"]
+radius = 17.0294
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76etq"]
+size = Vector2(46, 7)
 
 [node name="introLevel" type="Node2D"]
 script = ExtResource("1_jy67l")
 
-[node name="IntroScene" type="Sprite2D" parent="."]
-position = Vector2(160, 100)
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(320, 200)
 texture = ExtResource("2_wae7k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+script = ExtResource("3_1tvrb")
 
 [node name="Player" parent="." instance=ExtResource("3_dnwwf")]
-position = Vector2(163, 85)
+position = Vector2(542, 185)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(224, 180)
+shape = SubResource("CircleShape2D_j04nu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(457, 127.5)
+shape = SubResource("RectangleShape2D_76etq")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+polygon = PackedVector2Array(234, 100, 235, 130, 273, 131, 274, 143, 315, 143, 318, 130, 393, 130, 413, 130, 413, 126, 395, 125, 393, 101)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
+polygon = PackedVector2Array(640, 2, 640, 401, 0, 399, 0, 2, 652, -1, 652, -31, -27, -30, -24, 434, 673, 426, 651, -1, 640, -1)
