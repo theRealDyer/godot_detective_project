@@ -59,6 +59,7 @@ offset_bottom = 721.0
 stream = ExtResource("1_sqf2s")
 autoplay = true
 expand = true
+loop = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

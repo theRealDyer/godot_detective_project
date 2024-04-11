@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
 
+[autoload]
+
+MusicManager="*res://scripts/MusicManager.gd"
+
 [display]
 
 window/size/viewport_width=1280

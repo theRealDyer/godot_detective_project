@@ -1,7 +1,9 @@
 extends Control
 
 func _ready():
-
+	
+	MusicManager.start_music()
+	
 	$AnimationPlayer.play("fade_in")
 	await get_tree().create_timer(6).timeout
 

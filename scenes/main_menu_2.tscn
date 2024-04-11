@@ -59,6 +59,7 @@ offset_bottom = 721.0
 stream = ExtResource("2_kuyvh")
 autoplay = true
 expand = true
+loop = true
 
 [node name="ButtonPrologue" type="Button" parent="."]
 layout_mode = 0
