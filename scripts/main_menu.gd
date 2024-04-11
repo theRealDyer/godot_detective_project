@@ -1,7 +1,9 @@
 extends Control
 
 func _ready():
-
+	
+	MusicManager.start_music()
+	
 	$AnimationPlayer.play("fade_in")
 	await get_tree().create_timer(6).timeout
 
@@ -12,4 +14,4 @@ func _on_button_credits_pressed():
 
 
 func _on_button_begin_pressed():
-	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu_2.tscn")

@@ -1,28 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddtlb082grvxd"]
+[gd_scene load_steps=8 format=3 uid="uid://ddtlb082grvxd"]
 
 [ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="1_8xh3x"]
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_q7jdc"]
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_q7jdc"]
 [ext_resource type="PackedScene" uid="uid://bbw6rgjhqqug6" path="res://scenes/table.tscn" id="3_w24go"]
-[ext_resource type="Script" path="res://scenes/ControlGUIs.gd" id="4_i6p38"]
+[ext_resource type="Script" path="res://scripts/ControlGUIs.gd" id="4_i6p38"]
 [ext_resource type="PackedScene" uid="uid://dcke2aie8n6yy" path="res://inventory/inventory.tscn" id="4_wdjeq"]
+[ext_resource type="PackedScene" uid="uid://qtc0qsocyx4x" path="res://scenes/paper1.tscn" id="6_vcx8n"]
+[ext_resource type="PackedScene" uid="uid://cvgvytbmqkc3g" path="res://scenes/InfoPanel.tscn" id="7_soypn"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_q7jdc")
 table_scene = ExtResource("3_w24go")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
-[node name="Player" parent="." instance=ExtResource("1_8xh3x")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_8xh3x")]
 position = Vector2(300, 300)
+collision_layer = 1
+collision_mask = 2
 
 [node name="table" parent="." instance=ExtResource("3_w24go")]
 position = Vector2(376, 160)
+scale = Vector2(1, 1)
 
 [node name="table2" parent="." instance=ExtResource("3_w24go")]
 position = Vector2(373, 508)
+scale = Vector2(1, 1)
 
 [node name="table3" parent="." instance=ExtResource("3_w24go")]
 position = Vector2(952, 136)
+scale = Vector2(1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_i6p38")
@@ -40,3 +48,11 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+
+[node name="Paper1" parent="." instance=ExtResource("6_vcx8n")]
+position = Vector2(169, 285)
+collision_mask = 1
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="InfoPanel" parent="UILayer" instance=ExtResource("7_soypn")]

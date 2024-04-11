@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://qtc0qsocyx4x"]
+
+[ext_resource type="Texture2D" uid="uid://sihaar1ucyes" path="res://art/objects/paper1.png" id="1_g5d68"]
+[ext_resource type="Script" path="res://scripts/itemPickup.gd" id="1_lbm7j"]
+[ext_resource type="Script" path="res://scripts/interaction_areas.gd" id="1_ndjjm"]
+[ext_resource type="Resource" uid="uid://kkevrjno83m6" path="res://item/items/paper.tres" id="2_7iixb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jx37"]
+radius = 27.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmnae"]
+size = Vector2(16, 18)
+
+[node name="Paper1" type="Area2D"]
+top_level = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ndjjm")
+metadata/Information = ExtResource("2_7iixb")
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CircleShape2D_5jx37")
+
+[node name="PaperEdges" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("1_lbm7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="PaperEdges"]
+texture = ExtResource("1_g5d68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaperEdges"]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_pmnae")
+
+[connection signal="item_interact" from="PaperEdges" to="." method="_display_Item_Info"]

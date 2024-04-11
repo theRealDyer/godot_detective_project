@@ -1,0 +1,195 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbdvya2n5pw0x"]
+
+[ext_resource type="Script" path="res://scenes/game_intro_message.gd" id="1_j3qgk"]
+[ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="1_leb73"]
+
+[sub_resource type="Animation" id="Animation_gse8a"]
+resource_name = "fade_in_1"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1), Color(0.137255, 0.137255, 0.145098, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(10.3, 11.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1), Color(0.137255, 0.137255, 0.145098, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect4:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(12.9, 14.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1), Color(0.137255, 0.137255, 0.145098, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_11r27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.286275, 0.286275, 0.286275, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.286275, 0.286275, 0.286275, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect4:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.286275, 0.286275, 0.286275, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f2q4c"]
+resource_name = "fade_out_1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 0), Color(0.137255, 0.137255, 0.145098, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 0), Color(0.137255, 0.137255, 0.145098, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect4:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 0), Color(0.137255, 0.137255, 0.145098, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovvos"]
+_data = {
+"RESET": SubResource("Animation_11r27"),
+"fade_in_1": SubResource("Animation_gse8a"),
+"fade_out_1": SubResource("Animation_f2q4c")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(3, 0)
+script = ExtResource("1_j3qgk")
+
+[node name="ColorRect1" type="ColorRect" parent="."]
+offset_left = 145.0
+offset_top = 123.0
+offset_right = 1112.0
+offset_bottom = 593.0
+color = Color(0.137255, 0.137255, 0.145098, 1)
+
+[node name="Label1 - pen&paper" type="Label" parent="."]
+offset_left = 105.0
+offset_top = 183.0
+offset_right = 1169.0
+offset_bottom = 572.0
+theme_override_fonts/font = ExtResource("1_leb73")
+text = "Detective can be played however you like, but it was designed to be enjoyed at a steady pace, taking in the details, and the story. It will not hold your hand, and to progress you will need to pay careful attention, and think laterally.
+Pen & paper is also your friend.
+
+Take it slow. But above all:
+
+Have fun."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 78.0
+offset_top = 106.0
+offset_right = 1221.0
+offset_bottom = 404.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 116.0
+offset_top = 399.0
+offset_right = 1136.0
+offset_bottom = 495.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 92.0
+offset_top = 494.0
+offset_right = 1131.0
+offset_bottom = 613.0
+color = Color(0.286275, 0.286275, 0.286275, 0)
+
+[node name="Label2_1993" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 297.0
+offset_right = 1143.0
+offset_bottom = 655.0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_leb73")
+text = "The American South.
+
+1993."
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ovvos")
+}

@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://drcipjx6xgqs1"]
+
+[ext_resource type="Script" path="res://scripts/main_menu_2.gd" id="1_pvpnn"]
+[ext_resource type="VideoStream" path="res://art/rain_background.ogv" id="2_kuyvh"]
+[ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="3_rfpdx"]
+
+[sub_resource type="Animation" id="Animation_o1ww6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wcpvj"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1), Color(0.137255, 0.137255, 0.145098, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_223gh"]
+_data = {
+"RESET": SubResource("Animation_o1ww6"),
+"fade_in": SubResource("Animation_wcpvj")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pvpnn")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1281.0
+offset_bottom = 721.0
+stream = ExtResource("2_kuyvh")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ButtonPrologue" type="Button" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 105.0
+offset_right = 790.0
+offset_bottom = 254.0
+theme_override_fonts/font = ExtResource("3_rfpdx")
+theme_override_font_sizes/font_size = 28
+text = "Prologue"
+
+[node name="ButtonLevel1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 280.0
+offset_right = 790.0
+offset_bottom = 429.0
+theme_override_fonts/font = ExtResource("3_rfpdx")
+theme_override_font_sizes/font_size = 28
+text = "Level 1"
+
+[node name="ButtonLevel2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 455.0
+offset_right = 790.0
+offset_bottom = 604.0
+theme_override_fonts/font = ExtResource("3_rfpdx")
+theme_override_font_sizes/font_size = 28
+text = "Level 2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_223gh")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -37.0
+offset_top = -40.0
+offset_right = 1338.0
+offset_bottom = 761.0
+color = Color(0.137255, 0.137255, 0.145098, 1)
+
+[connection signal="pressed" from="ButtonPrologue" to="." method="_on_button_prologue_pressed"]
+[connection signal="pressed" from="ButtonLevel1" to="." method="_on_button_level1_pressed"]
+[connection signal="pressed" from="ButtonLevel2" to="." method="_on_button_level2_pressed"]
