@@ -104,5 +104,14 @@ offset_right = 1338.0
 offset_bottom = 761.0
 color = Color(0.137255, 0.137255, 0.145098, 1)
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 664.0
+offset_right = 435.0
+offset_bottom = 710.0
+theme_override_fonts/font = ExtResource("2_rudlo")
+text = "Version: 0.00001 super alpha"
+
 [connection signal="pressed" from="ButtonBegin" to="." method="_on_button_begin_pressed"]
 [connection signal="pressed" from="ButtonCredits" to="." method="_on_button_credits_pressed"]

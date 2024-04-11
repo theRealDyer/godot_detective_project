@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://blgxes0b0pu5c"]
+[gd_scene load_steps=8 format=3 uid="uid://de43kslyywgin"]
 
-[ext_resource type="Script" path="res://scripts/intro_jjgames_logo.gd" id="1_ui1kp"]
-[ext_resource type="Texture2D" uid="uid://vu2tqnwe0yl" path="res://art/logos/jjgames_logo_white_big-Sheet.png" id="2_c5464"]
+[ext_resource type="Script" path="res://scripts/intro_jjgames_logoTEST.gd" id="1_cj4dv"]
+[ext_resource type="Texture2D" uid="uid://vu2tqnwe0yl" path="res://art/logos/jjgames_logo_white_big-Sheet.png" id="2_2pw05"]
 
 [sub_resource type="Animation" id="Animation_g6r60"]
 length = 0.001
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "values": [Color(0.137255, 0.137255, 0.145098, 0), Color(0.137255, 0.137255, 0.145098, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ci8ct"]
+[sub_resource type="Animation" id="Animation_s8oy2"]
 resource_name = "vhs glitch"
 length = 4.0
 tracks/0/type = "value"
@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_50ky6"]
@@ -83,7 +83,7 @@ _data = {
 "RESET": SubResource("Animation_g6r60"),
 "fade_in": SubResource("Animation_jbxa2"),
 "fade_out": SubResource("Animation_2h2ml"),
-"vhs glitch": SubResource("Animation_ci8ct")
+"vhs glitch": SubResource("Animation_s8oy2")
 }
 
 [node name="intro_jjgames_logo" type="Control"]
@@ -93,7 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ui1kp")
+script = ExtResource("1_cj4dv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -104,8 +104,8 @@ offset_bottom = 761.0
 color = Color(0.137255, 0.137255, 0.145098, 1)
 
 [node name="JJGamesLogoWhiteBig" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("2_c5464")
+position = Vector2(642, 360)
+texture = ExtResource("2_2pw05")
 hframes = 15
 
 [node name="ColorRect2" type="ColorRect" parent="."]
