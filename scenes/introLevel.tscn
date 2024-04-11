@@ -9,7 +9,7 @@
 radius = 17.0294
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76etq"]
-size = Vector2(46, 7)
+size = Vector2(206, 7)
 
 [node name="introLevel" type="Node2D"]
 script = ExtResource("1_jy67l")
@@ -34,13 +34,13 @@ shape = SubResource("CircleShape2D_j04nu")
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(457, 127.5)
+position = Vector2(537, 127.5)
 shape = SubResource("RectangleShape2D_76etq")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-polygon = PackedVector2Array(234, 100, 235, 130, 273, 131, 274, 143, 315, 143, 318, 130, 393, 130, 413, 130, 413, 126, 395, 125, 393, 101)
+polygon = PackedVector2Array(232, 72, 235, 130, 273, 131, 274, 143, 315, 143, 318, 130, 393, 130, 413, 130, 413, 126, 395, 125, 391, 69)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
