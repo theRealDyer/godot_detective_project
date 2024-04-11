@@ -15,5 +15,5 @@ func _on_button_level2_pressed():
 	MusicManager.stop_music()
 
 func _on_button_prologue_pressed():
-	get_tree().change_scene_to_file("res://scenes/introLevel.tscn")
+	get_tree().change_scene_to_file("res://scenes/game_intro_message.tscn")
 	MusicManager.stop_music()
