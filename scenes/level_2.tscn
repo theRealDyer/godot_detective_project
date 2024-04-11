@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bc5sehw4r5suf" path="res://art/backgrounds/TilesetInterior.png" id="2_ih0yj"]
 [ext_resource type="Texture2D" uid="uid://dyxjnl3p1gli8" path="res://art/backgrounds/TilesetInteriorFloor.png" id="3_fl321"]
 [ext_resource type="Texture2D" uid="uid://dfbc4rtq5em6s" path="res://art/backgrounds/TilesetWallSimple.png" id="4_kdt7f"]
-[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="5_ujh70"]
+[ext_resource type="Script" path="res://scripts/Camera2DTile.gd" id="5_ujh70"]
 [ext_resource type="Resource" uid="uid://dsomf22bo2r0x" path="res://inventory/inventory.tres" id="7_3ttfs"]
 [ext_resource type="PackedScene" uid="uid://bwry8tx8byx2u" path="res://scenes/npc1.tscn" id="7_scust"]
 [ext_resource type="PackedScene" uid="uid://bbw6rgjhqqug6" path="res://scenes/table.tscn" id="8_8v3mu"]
@@ -1768,7 +1768,6 @@ position = Vector2(223, 118)
 collision_layer = 1
 collision_mask = 6
 inventory = ExtResource("7_3ttfs")
-speed = 50
 
 [node name="Npc1" parent="." instance=ExtResource("7_scust")]
 position = Vector2(356, 194)
