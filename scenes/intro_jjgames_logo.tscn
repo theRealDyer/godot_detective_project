@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://blgxes0b0pu5c"]
+[gd_scene load_steps=9 format=3 uid="uid://blgxes0b0pu5c"]
 
 [ext_resource type="Script" path="res://scripts/intro_jjgames_logo.gd" id="1_ui1kp"]
 [ext_resource type="Texture2D" uid="uid://vu2tqnwe0yl" path="res://art/logos/jjgames_logo_white_big-Sheet.png" id="2_c5464"]
+[ext_resource type="AudioStream" uid="uid://0j2wme81at2v" path="res://sounds/vhs_glitch_audio3.wav" id="3_2jn61"]
 
 [sub_resource type="Animation" id="Animation_g6r60"]
 length = 0.001
@@ -121,3 +122,6 @@ root_node = NodePath("../ColorRect2")
 libraries = {
 "": SubResource("AnimationLibrary_50ky6")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2jn61")
