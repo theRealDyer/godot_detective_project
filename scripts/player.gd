@@ -5,8 +5,8 @@ extends CharacterBody2D
 
 @export var inventory: InventoryData
 
-@export var speed = 100 # Sets how fast player moves [pixels/sec]
-@export var sprintFactor=1.5 # Factor to increase movement when sprinting
+@export var speed = 50 # Sets how fast player moves [pixels/sec]
+@export var sprintFactor = 2 # Factor to increase movement when sprinting
 var screen_size # Size of game window
 
 # Called when the node enters the scene tree for the first time.

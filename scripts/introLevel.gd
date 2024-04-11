@@ -1,11 +1,13 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var finished := false # for use when exiting level
 
+func finish(): # finishes the scene and moves to the next one
+	if not finished:
+		finished = true
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _unhandled_input(event): # calls finish when Esc is pressed
+	if event.is_action_pressed("ui_cancel"):
+		finish()
