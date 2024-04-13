@@ -2,16 +2,19 @@ extends CharacterBody2D
 
 # get camera node
 @onready var cameraNode : Camera2D = get_node("../Camera2D")
+@onready var isIdle=true
 
 @export var inventory: InventoryData
 
 @export var speed = 50 # Sets how fast player moves [pixels/sec]
 @export var sprintFactor = 2 # Factor to increase movement when sprinting
+
 var screen_size # Size of game window
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.animation = 'idleRL'
 	process_mode = Node.PROCESS_MODE_PAUSABLE # Allows player to be paused
 	screen_size = get_viewport_rect().size
 
@@ -47,9 +50,6 @@ func movement_and_animation(delta):
 	if velocity.length() > 0:
 		# Ensure that the velocity is the same diagonally as on grid
 		velocity = velocity.normalized()  * speed
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
 	
 	# Check direction of movenent and play correct animation
 	if velocity.y!=0: # UpDown movement

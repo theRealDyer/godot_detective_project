@@ -56,22 +56,6 @@ size = Vector2(206, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_162qs"]
 size = Vector2(668.5, 36)
 
-[sub_resource type="Animation" id="Animation_sym36"]
-resource_name = "fade_in_text"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label2_1993:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_7ijqv"]
 length = 0.001
 tracks/0/type = "value"
@@ -149,6 +133,22 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(223, 180), Vector2(427, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_sym36"]
+resource_name = "fade_in_text"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dxvu"]
