@@ -13,7 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# currently set up for introLevel cutscene, so wiill need to amend to cover all cutscenes in any levels
+	if get_node("/root/introLevel").can_move:
+		pass
 
 
 

@@ -31,10 +31,12 @@ func get_input():
 	else:
 		# Walking
 		velocity = input_dir * speed
-	
 
 
-func _physics_process(delta):
+
+
+	# If we're in the introLevel and can_move is true, do something...
+func movement_and_animation(delta):
 	get_input()
 	move_and_collide(velocity*delta)
 	
@@ -84,7 +86,6 @@ func _physics_process(delta):
 		# Idling --> set idle image based on previous movement
 		if Input.is_action_just_released("walk_forward") or \
 		Input.is_action_just_released("walk_backward"):
-			
 			$AnimatedSprite2D.animation = 'idleUD'
 		elif Input.is_action_just_released("walk_left") or \
 		Input.is_action_just_released("walk_right"):
@@ -96,3 +97,14 @@ func _physics_process(delta):
 	#var new_pos = position.clamp(Vector2.ZERO, screen_size)
 	#if new_pos != position:
 		#position=new_pos
+
+
+func _physics_process(delta):
+	# currently set up for introLevel cutscene, so wiill need to amend to cover all cutscenes in any levels
+	var intro_level = get_node_or_null("/root/introLevel")	
+	if intro_level:
+		if get_node("/root/introLevel").can_move:
+			movement_and_animation(delta)
+	else:
+		movement_and_animation(delta)
+		

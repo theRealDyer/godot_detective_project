@@ -73,7 +73,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idleRL",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,7 +84,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idleUD",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -152,7 +152,8 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_co5mn")
-animation = &"idleUD"
+animation = &"idleRL"
+frame_progress = 0.999223
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vg53")

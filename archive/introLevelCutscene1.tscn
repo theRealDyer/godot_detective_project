@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5reklgdqemun"]
+
+[ext_resource type="Script" path="res://archive/introLevelCutscene1.gd" id="1_dle28"]
+[ext_resource type="Texture2D" uid="uid://bspbbhdplqq7s" path="res://art/backgrounds/intro_scene.png" id="2_b62gt"]
+[ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="4_rd1ld"]
+[ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="5_vox3k"]
+
+[sub_resource type="Animation" id="Animation_sym36"]
+resource_name = "fade_in_text"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ijqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect1:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(223, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_3os1t"]
+resource_name = "fadeOutText_cameraPan"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1), Color(0.137255, 0.137255, 0.145098, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(223, 180), Vector2(427, 180)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dxvu"]
+_data = {
+"RESET": SubResource("Animation_7ijqv"),
+"fadeOutText_cameraPan": SubResource("Animation_3os1t"),
+"fade_in_text": SubResource("Animation_sym36")
+}
+
+[node name="introLevel" type="Node2D"]
+script = ExtResource("1_dle28")
+
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(320, 200)
+texture = ExtResource("2_b62gt")
+
+[node name="Player" parent="." instance=ExtResource("4_rd1ld")]
+position = Vector2(542, 185)
+script = null
+
+[node name="ColorRect1" type="ColorRect" parent="."]
+offset_left = -188.0
+offset_top = -44.0
+offset_right = 779.0
+offset_bottom = 447.0
+color = Color(0.137255, 0.137255, 0.145098, 1)
+
+[node name="Label2_1993" type="Label" parent="."]
+offset_left = 89.0
+offset_top = 166.0
+offset_right = 332.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("5_vox3k")
+theme_override_font_sizes/font_size = 5
+text = "The American South.
+
+1993."
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0dxvu")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(223, 180)
+zoom = Vector2(3, 3)
