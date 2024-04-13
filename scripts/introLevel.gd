@@ -12,6 +12,8 @@ func _ready():
 	await get_tree().create_timer(2).timeout
 	$AnimationPlayer.play("fadeOutText_cameraPan")
 	await get_tree().create_timer(10).timeout
+	$AnimationPlayer.play("letterbox_withdraw")
+	await get_tree().create_timer(2).timeout
 	# ----- cutscene end -----
 	can_move = true # Now the player can move and the camera can track
 
