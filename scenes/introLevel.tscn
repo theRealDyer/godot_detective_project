@@ -1,15 +1,162 @@
-[gd_scene load_steps=7 format=3 uid="uid://b08nkp0umw87o"]
+[gd_scene load_steps=21 format=3 uid="uid://b08nkp0umw87o"]
 
 [ext_resource type="Script" path="res://scripts/introLevel.gd" id="1_jy67l"]
 [ext_resource type="Texture2D" uid="uid://bspbbhdplqq7s" path="res://art/backgrounds/intro_scene.png" id="2_wae7k"]
 [ext_resource type="Script" path="res://scripts/Camera2DNonTile.gd" id="3_1tvrb"]
 [ext_resource type="PackedScene" uid="uid://k7fqqwe3qwai" path="res://scenes/player.tscn" id="3_dnwwf"]
+[ext_resource type="FontFile" uid="uid://pyum5bu4a411" path="res://fonts/Pixeled.ttf" id="5_mp2lg"]
+[ext_resource type="Texture2D" uid="uid://b3484gvwkdwef" path="res://art/objects/npc2_idle.png" id="5_s2qjn"]
+[ext_resource type="AudioStream" uid="uid://v3l6o3roulv7" path="res://sounds/ambientWheatField.mp3" id="6_gxio0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ipc3"]
+size = Vector2(26, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wcs3"]
+atlas = ExtResource("5_s2qjn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ky06"]
+atlas = ExtResource("5_s2qjn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8o21"]
+atlas = ExtResource("5_s2qjn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc0a8"]
+atlas = ExtResource("5_s2qjn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pd84o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wcs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ky06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8o21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc0a8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j04nu"]
 radius = 17.0294
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76etq"]
 size = Vector2(206, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_162qs"]
+size = Vector2(668.5, 36)
+
+[sub_resource type="Animation" id="Animation_sym36"]
+resource_name = "fade_in_text"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ijqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect1:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(223, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_3os1t"]
+resource_name = "fadeOutText_cameraPan"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.137255, 0.145098, 1), Color(0.137255, 0.137255, 0.145098, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2_1993:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(223, 180), Vector2(427, 180)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dxvu"]
+_data = {
+"RESET": SubResource("Animation_7ijqv"),
+"fadeOutText_cameraPan": SubResource("Animation_3os1t"),
+"fade_in_text": SubResource("Animation_sym36")
+}
 
 [node name="introLevel" type="Node2D"]
 script = ExtResource("1_jy67l")
@@ -19,11 +166,27 @@ position = Vector2(320, 200)
 texture = ExtResource("2_wae7k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(223, 180)
 zoom = Vector2(3, 3)
 script = ExtResource("3_1tvrb")
 
 [node name="Player" parent="." instance=ExtResource("3_dnwwf")]
-position = Vector2(542, 185)
+position = Vector2(542, 180)
+
+[node name="gingerPolice" type="StaticBody2D" parent="."]
+position = Vector2(337, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="gingerPolice"]
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gingerPolice"]
+shape = SubResource("RectangleShape2D_5ipc3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="gingerPolice"]
+sprite_frames = SubResource("SpriteFrames_pd84o")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.779504
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -46,3 +209,39 @@ polygon = PackedVector2Array(232, 72, 235, 130, 273, 131, 274, 143, 315, 143, 31
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
 polygon = PackedVector2Array(640, 2, 640, 401, 0, 399, 0, 2, 652, -1, 652, -31, -27, -30, -24, 434, 673, 426, 651, -1, 640, -1)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(308.25, 270)
+shape = SubResource("RectangleShape2D_162qs")
+
+[node name="ColorRect1" type="ColorRect" parent="."]
+offset_left = -188.0
+offset_top = -44.0
+offset_right = 779.0
+offset_bottom = 447.0
+color = Color(0.137255, 0.137255, 0.145098, 1)
+
+[node name="Label2_1993" type="Label" parent="."]
+offset_left = 106.0
+offset_top = 146.0
+offset_right = 349.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("5_mp2lg")
+theme_override_font_sizes/font_size = 5
+text = "The American South.
+
+
+1993."
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0dxvu")
+}
+
+[node name="BackgroundAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gxio0")
